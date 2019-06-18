@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import App from '../components/App';
 import '../scss/index.scss';
 
-ReactDOM.render(<div className="test-div">Привет мир!</div>, document.getElementById('root'))
+ReactDOM.render(<App/>, document.getElementById('root'))
