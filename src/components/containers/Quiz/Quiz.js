@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import  ActiveQuiz from '../../ActiveQuiz/ActiveQuiz.jsx';
 
 class Quiz extends Component {
     constructor(props) {
@@ -10,7 +11,10 @@ class Quiz extends Component {
     render () {
         return (
             <div className="Quiz">
-                <h1>Quiz</h1>
+                <div className="QuizWrapper">
+                    <h1>Quiz</h1>
+                    <ActiveQuiz/>
+                </div>
             </div>
         )
     }
