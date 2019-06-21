@@ -1,8 +1,10 @@
 {
     "cSpell.ignoreWords": [
         "babel",
+        "lenght",
         "plugin",
         "polyfill",
+        "quiz",
         "uglifyjs",
         "webpack"
     ]

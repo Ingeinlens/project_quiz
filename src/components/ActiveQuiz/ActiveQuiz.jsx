@@ -1,21 +1,25 @@
-import React from 'react'
+import React from 'react';
+import AnswersList from './AnswersList.jsx';
 
 const ActiveQuiz = props => {
     return (
         <div className="ActiveQuiz">
             <p>
-                <span>
-                    <strong>2.&nbsp;</strong>
-                    Как дела?
+                <span className="mainQuestion">
+                    <strong>{props.answerNumber}.&nbsp;</strong>
+                    {props.question}
                 </span>
-                <small>4 из 12</small>
+                <small>{props.answerNumber} из {props.quizLenght}</small>
             </p>
-            <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-            </ul>
+            <AnswersList 
+                unResult={props.unResult}
+                result={props.result}
+                quizLenght={props.quizLenght}
+                answers={props.answers} 
+                onAnswerClick={props.onAnswerClick}
+                answerState={props.answerState}
+                answerId={props.answerId}
+            />
         </div>
     )
 }
