@@ -5,6 +5,8 @@
         "plugin",
         "polyfill",
         "quiz",
+        "quizes",
+        "render",
         "uglifyjs",
         "webpack"
     ]

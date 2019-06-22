@@ -4,14 +4,34 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
-
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: './src/js/index.js',
     module: {
         rules: [{
             test: /\.scss$/,
-            use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+            loader: ExtractTextPlugin.extract(
+                Object.assign({
+                        fallback: {
+                            loader: require.resolve('style-loader'),
+                            options: {
+                                hmr: false,
+                            },
+                        },
+                        use: [{
+                                loader: require.resolve('sass-loader'),
+                                options: {
+                                    importLoaders: 1,
+                                    minimize: true,
+                                    modules: true,
+                                    localIdentName: '[name]__[local]--[hash:base64:5]'
+                                },
+                            },
+                        ],
+                    },
+                )
+            ),
         }, {
             test: /\.jsx?$/,
             exclude: /node_modules/,
@@ -30,6 +50,7 @@ module.exports = {
         ]
     },
     plugins: [
+        new ExtractTextPlugin('style.css'),
         new MiniCssExtractPlugin({
             filename: 'style.css'
         }),
