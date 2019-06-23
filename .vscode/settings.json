@@ -8,6 +8,7 @@
         "quizes",
         "render",
         "uglifyjs",
-        "webpack"
+        "webpack",
+        "корректный"
     ]
 }
